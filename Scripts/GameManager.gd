@@ -1,6 +1,7 @@
 extends Node
 
 var money = 0
+var player_health = 200;
 
 func reset_money():
 	money = 0

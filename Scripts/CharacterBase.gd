@@ -3,7 +3,7 @@ class_name CharacterBase
 
 @export var sprite : AnimatedSprite2D
 @export var healthbar : ProgressBar
-@export var health : int
+@export var health : int = 100
 @export var flipped_horizontal : bool
 @export var hit_particles : GPUParticles2D
 

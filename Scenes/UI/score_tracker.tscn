@@ -1,0 +1,71 @@
+[gd_scene load_steps=6 format=3 uid="uid://b6xb8nhlqtuhf"]
+
+[ext_resource type="Script" path="res://Scenes/UI/GameUI.gd" id="1_utaro"]
+[ext_resource type="LabelSettings" uid="uid://1cnb4418rr7" path="res://Art/Fonts/pixelized_label_large.tres" id="2_ygwdu"]
+[ext_resource type="LabelSettings" uid="uid://da8inon5cmt2r" path="res://Art/Fonts/pixelized_label.tres" id="3_ou8qr"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vmj1s"]
+bg_color = Color(0.0352941, 0.0156863, 0.00784314, 0.427451)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0r2xt"]
+bg_color = Color(1, 0, 0, 1)
+
+[node name="Score_tracker_layer" type="CanvasLayer"]
+layer = 2
+
+[node name="GameUI" type="Control" parent="." node_paths=PackedStringArray("money_label", "healthbar")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_utaro")
+money_label = NodePath("MoneyLabel")
+healthbar = NodePath("ProgressBar")
+
+[node name="MoneyLabel" type="Label" parent="GameUI"]
+z_index = 1
+layout_mode = 0
+offset_left = 2.0
+offset_top = 7.0
+offset_right = 42.0
+offset_bottom = 30.0
+label_settings = ExtResource("2_ygwdu")
+
+[node name="ProgressBar" type="ProgressBar" parent="GameUI"]
+light_mask = 2
+visibility_layer = 2
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0140625
+anchor_top = 0.944778
+anchor_right = 0.0140625
+anchor_bottom = 0.944778
+offset_top = 11.88
+offset_right = 6.0
+offset_bottom = 75.88
+grow_vertical = 0
+rotation = -1.57079
+theme_override_styles/background = SubResource("StyleBoxFlat_vmj1s")
+theme_override_styles/fill = SubResource("StyleBoxFlat_0r2xt")
+step = 1.0
+value = 25.0
+fill_mode = 2
+show_percentage = false
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="GameUI"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.050125
+anchor_top = 0.990222
+anchor_right = 0.050125
+anchor_bottom = 0.990222
+offset_left = -23.08
+offset_top = -24.48
+offset_right = 22.92
+offset_bottom = -11.48
+text = "Health"
+label_settings = ExtResource("3_ou8qr")
+metadata/_edit_use_anchors_ = true
